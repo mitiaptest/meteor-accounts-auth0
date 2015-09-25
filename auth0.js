@@ -7,9 +7,11 @@ if (Meteor.isClient) {
       callback = options;
       options = null;
     }
-
     var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
     Auth0.requestCredential(options, credentialRequestCompleteCallback);
+  };
+  Meteor.checkUserAuth0Login = function() {
+    Auth0.checkUserLogin();
   };
 }
 else {
